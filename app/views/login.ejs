@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./header") %>
+        <title>Login</title>
+</head>
+
+<body background="/images/hinh-nen.jpeg">
+    <div class="container login-container">
+        <form class="form_login" method="POST" action="/login/sucsses">
+            <img src="/images/blog.jpg" alt="" width="300" height="100">
+            <div class="alert alert-info text-center" role="alert">
+                <%- message%>
+            </div>
+            <input placeholder="Username" type="text" required="" name="Username">
+            <input placeholder="Password" type="password" required="" name="Password">
+            <input type="submit" value="Sign in">
+            <a href="/signup" class="text-primary"><button type="button" class="btn btn-outline-primary btn-sm w-25">Sign Up</button></a>
+            <span><a href="/getpass" class="text-primary"><button type="button" class="btn btn-outline-primary btn-sm">Foget password</button></a></span><br><br>
+            <p class="text-center"><a href="/termsOfsevice/website" class="text-primary"><button type="button" class="btn btn-outline-primary btn-sm w-75">Terms of service</button></a></p>
+        </form>
+    </div>
+    <script language="javascript" src="/js/js.js"></script>
+</body>
+
+</html>

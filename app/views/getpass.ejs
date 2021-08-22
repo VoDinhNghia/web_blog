@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./header") %>
+        <title>get password</title>
+</head>
+
+<body background="/images/hinh-nen.jpeg">
+    <form class="form_login" method="POST" action="/sendPass">
+        <img src="/images/blog.jpg" alt="" width="300" height="100">
+        <div class="alert alert-info text-center" role="alert">
+            <%- message%>
+        </div>
+        <input placeholder="username" type="text" required="" name="UserName">
+        <input placeholder="email" type="email" required="" name="EmailUser" autofocus="">
+        <input type="submit" value="get password">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+version: "3"
+services:
+  nodejsweb:
+    build: 
+      context: .
+    image: blog_web
+
+    ports:
+      - "8888:8888"
+    container_name: web-blog
+networks:
+   default:
+     external:
+        name: blog_web

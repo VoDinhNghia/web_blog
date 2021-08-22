@@ -1,0 +1,79 @@
+<div class="col-sm-4" id="content_left">
+    <br>
+    <ul class="nav nav-pills list-group flex-column">
+        <li class="nav-item text-center">
+            <a class="nav-link active bg-white text-primary" style="border: 1px solid lightgray" href="#">List 10 latest posts</a>
+        </li><br>
+        <% if(data_10_post.length){ 
+            for(var i = 0;i < data_10_post.length ;i++) { %>
+            <li class="list-group-item">
+                <a class="bg-gray text-dark" href="/info/post/<%= data_10_post[i].ID %>">
+                    <span class="float-left" style="width: 82%;"><%= data_10_post[i].TitlePost %></span>
+                    <span class="badge float-right">
+                        <% if(data_10_post[i].Avatar != '') { %>
+                            <img src="<%= data_10_post[i].Avatar%>" alt="" width="20" height="20" class="rounded-circle">
+                            <span>
+                                <% if(data_10_post[i].Status == 0) { %>
+                                    <img src="/images/red_off.png" alt="" width="8" height="8" class="rounded-circle">
+                                    <% }else { %>
+                                     <img src="/images/green_act.png" alt="" width="8" height="8" class="rounded-circle">
+                                        <% }%>
+                            </span>
+                    <% }else {
+                                if(data_10_post[i].Gender == 1) {%>
+                        <img src="/images/male-avatar.png" alt="" width="20" height="20" class="rounded-circle">
+                        <span>
+                                <% if(data_10_post[i].Status == 0) { %>
+                                    <img src="/images/red_off.png" alt="" width="8" height="8" class="rounded-circle">
+                                    <% }else { %>
+                                     <img src="/images/green_act.png" alt="" width="8" height="8" class="rounded-circle">
+                                        <% }%>
+                            </span>
+                        <% } else{%>
+                            <img src="/images/female-avatar.jpg" alt="" width="20" height="20" class="rounded-circle">
+                            <span>
+                                <% if(data_10_post[i].Status == 0) { %>
+                                    <img src="/images/red_off.png" alt="" width="8" height="8" class="rounded-circle">
+                                    <% }else { %>
+                                     <img src="/images/green_act.png" alt="" width="8" height="8" class="rounded-circle">
+                                        <% }%>
+                            </span>
+                            <% }}%>
+                                </span>
+
+                </a>
+            </li>
+            <% } %>
+                <%    } else{ %>
+                    <p>Not found post</p>
+
+                    <% }; %>
+
+
+    </ul>
+    <hr class="d-sm-none"><br>
+    <ul class="nav nav-pills list-group flex-column">
+        <li class="nav-item active text-center">
+            <a class="nav-link active bg-white text-primary" style="border: 1px solid lightgray" href="">Search date</a>
+        </li><br>
+        <li>
+            <form action="/search/date" method="POST">
+                <div class="row ml-2">
+                    <input type="date" name="search_date" max="3000-12-31" min="2020-01-01" class="form-control w-75">
+                    <button type="submit" class="btn btn-outline-primary bg-white ml-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </button>
+                </div>
+            </form>
+        </li>
+    </ul>
+    </ul>
+    <hr class="d-sm-none"><br>
+    <ul class="nav nav-pills list-group flex-column">
+        <li class="nav-item active text-center">
+            <a class="nav-link active bg-white text-primary" style="border: 1px solid lightgray" href="/tutorial/page">Document</a>
+        </li>
+    </ul>
+</div>
