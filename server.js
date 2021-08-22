@@ -12,7 +12,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(urlencodedParser);
 var session = require('express-session');
 app.use(session({
-    secret: 'dhhd 0192 nghia',
+    secret: '***********',
     resave: true,
     saveUninitialized: true
 }));
@@ -94,15 +94,6 @@ app.post('/change/background', Background.ChangeBackground);
 app.get('/logout', AuthController.Logout);
 //app.get('/detail_mess_send/:id', MessageController.DetailMess);
 
-app.use((req, res, next) => {
-    let err = new Error('Page not found.');
-    err.status = 404;
-    next(err);
-});
-app.use((err, req, res, next) => {
-    res.status(err.status | 500);
-    res.send(err.message);
-});
 let port = require('./app/config/Config').port;
 const { MethodDelete } = require('./app/module/MethodController');
 const server = app.listen(port, function() {
