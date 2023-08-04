@@ -4,7 +4,6 @@ const controller = require('./Controller');
 const upload = require("./UploadFile");
 const fs = require('fs');
 const { url } = require("inspector");
-const checkContent = require('../config/Config').checkContent;
 
 let formPost = async(req, res) => {
     try {
@@ -41,15 +40,6 @@ let newPost = async(req, res) => {
                     if (req.body.title_post == '') { title_post = 'Not title' } else { title_post = req.body.title_post }
                     let content = req.body.content_post;
                     let checkTitle = req.body.title_post;
-                    let arrayCheckContent = checkContent;
-                    for (let i = 0; i < arrayCheckContent.length; i++) {
-                        if (content.indexOf(arrayCheckContent[i]) >= 0) {
-                            content = 'Xin lỗi không được nói tục.';
-                        }
-                        if (checkTitle.indexOf(arrayCheckContent[i]) >= 0) {
-                            checkTitle = 'Xin lỗi không được nói tục.';
-                        }
-                    }
                     let body = {
                         "TitlePost": checkTitle,
                         "ContentPost": content,
@@ -132,12 +122,6 @@ let Comments = async(req, res) => {
             res.redirect('/');
         } else {
             let content = req.body.content_comment;
-            let arrayCheckContent = checkContent;
-            for (let i = 0; i < arrayCheckContent.length; i++) {
-                if (content.indexOf(arrayCheckContent[i]) >= 0) {
-                    content = 'Xin lỗi không được nói tục.';
-                }
-            }
             let body = {
                 "IdPost": req.body.id_post,
                 "Comment": content
@@ -205,15 +189,6 @@ let EditPost = async(req, res) => {
                     if (req.body.privacy == 'public') { privacy = 0 } else { privacy = 1 }
                     let content = req.body.content_post;
                     let checkTitle = req.body.title_post;
-                    let arrayCheckContent = checkContent;
-                    for (let i = 0; i < arrayCheckContent.length; i++) {
-                        if (content.indexOf(arrayCheckContent[i]) >= 0) {
-                            content = 'Xin lỗi không được nói tục.';
-                        }
-                        if (checkTitle.indexOf(arrayCheckContent[i]) >= 0) {
-                            checkTitle = 'Xin lỗi không được nói tục.';
-                        }
-                    }
                     if (req.file != undefined) {
                         file_image = `/images/uploads/${req.file.filename}`;
                         if (find_image_listpost.status == true) {
